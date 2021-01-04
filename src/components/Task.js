@@ -21,12 +21,13 @@ function Task({el}) {
     
     return (
         <div>
-            <p>{el.text}</p>
+            {el.isDone ?<p style={{textDecoration:'line-through'}} >{el.text}</p> : <p>{el.text}</p>}
+            
             
             <EditTask el={el}/>
             
             
-            <button style={(el.done) ? {textDecoration:'line-through'} : {textDecoration:'none'}} className="addBtn" onClick={compl}>Done</button>
+            <button  className="addBtn" onClick={compl}>Done</button>
             <button className="addBtn" onClick={supp} >Delete</button>
             
         </div>
