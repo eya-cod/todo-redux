@@ -1,9 +1,11 @@
-import { ADDTASK, COMPLETE, DELATE, EDITTASK } from "./ActionType"
+import { ADDTASK, COMPLETE, DELATE, EDITTASK, SEEALL, SEEDONE, SEEUNDONE } from "./ActionType"
 
 
 
 const initState ={
-    tasks:[]
+    tasks:[],
+    
+    tab:[]
 }
 const Reducer =(state=initState, action)=>{
     switch (action.type) {
@@ -19,6 +21,18 @@ const Reducer =(state=initState, action)=>{
     
         case EDITTASK:
         return {...state, tasks: [...state.tasks.map(tasks=>tasks.id===action.payload.index?{...tasks,text:action.payload.editedText}:tasks)]}
+    
+        case SEEALL:
+        return {...state,tab:state.tasks,
+            tasks:state.tab.map()}
+    
+        case SEEDONE:
+        return {...state,tab:state.tasks,
+            tasks:state.tab.filter(el=>el.isDone)}
+    
+        case SEEUNDONE:
+        return {  ...state,tab:state.tasks,
+            tasks:state.tab.filter(el=>!el.isDone)}
     
         default:
         return state   

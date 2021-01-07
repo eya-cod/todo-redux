@@ -1,4 +1,4 @@
-import {ADDTASK, EDITTASK,COMPLETE, DELATE} from './ActionType'
+import {ADDTASK, EDITTASK,COMPLETE, DELATE, SEEALL, SEEDONE, SEEUNDONE} from './ActionType'
 
 export const addTask=(newTask)=>{
     
@@ -28,3 +28,24 @@ return{
                     payload:newTodo
                 }
                     }
+
+                    export const seeA=()=>{
+                        return{
+                            type:SEEALL,
+                            
+                        }
+                            }
+
+                            export const seeD=()=>{
+                                return{
+                                    type:SEEDONE,
+                                    
+                                }
+                                    }
+
+                                    export const seeU=()=>{
+                                        return{
+                                            type:SEEUNDONE,
+                                            
+                                        }
+                                            }
